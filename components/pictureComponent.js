@@ -4,10 +4,12 @@ function PictureComponent(props) {
   return (
     <View style={styles.container}>
       <Image
-        style={styles.tinyLogo}
+        style={styles.imageStyle}
         source={{
-          uri: "https://reactnative.dev/img/tiny_logo.png",
+          uri: props.uriImage,
         }}
+        resizeMode="contain"
+        resizeMethod="resize"
       />
     </View>
   );
@@ -15,11 +17,16 @@ function PictureComponent(props) {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
+    marginBottom: 50,
+    marginTop: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
+    backgroundColor: "black",
   },
-  logo: {
-    width: 66,
-    height: 58,
+  imageStyle: {
+    width: 200,
+    height: 200,
   },
 });
 export default PictureComponent;

@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import CustomButon from "../components/customButon";
 import PictureComponent from "../components/pictureComponent";
 
@@ -12,13 +12,12 @@ function Home() {
 
   return (
     <View>
-      <Text>Coucou</Text>
+      <PictureComponent
+        uriImage={
+          "https://drek4537l1klr.cloudfront.net/dabit/Figures/c04_10.png"
+        }
+      />
       <CustomButon actionButon={actionButon} titleButon={"Hello"} />
-      <PictureComponent />
-      <PictureComponent />
-      <PictureComponent />
-      <PictureComponent />
-      <PictureComponent />
     </View>
   );
 }

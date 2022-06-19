@@ -1,6 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { Text, View } from "react-native";
-import { Button } from "react-native";
+import { Button, View } from "react-native";
 
 function Librairie() {
   const navigation = useNavigation();
@@ -9,7 +8,6 @@ function Librairie() {
   };
   return (
     <View>
-      <Text>Coucou</Text>
       <Button onPress={actionButon} title="Home" />
     </View>
   );
