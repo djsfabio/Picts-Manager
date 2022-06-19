@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
-import CustomButon from "../components/customButon";
-import PictureComponent from "../components/pictureComponent";
+import CustomButon from "../components/CustomButon";
+import PictureComponent from "../components/PictureComponent";
 
 function Home() {
   const navigation = useNavigation();
