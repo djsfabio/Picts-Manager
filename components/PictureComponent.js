@@ -17,16 +17,14 @@ function PictureComponent(props) {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 50,
-    marginTop: 50,
     alignItems: "center",
     justifyContent: "center",
     flex: 1,
     backgroundColor: "black",
   },
   imageStyle: {
-    width: 200,
-    height: 200,
+    width: "100%",
+    height: "100%",
   },
 });
 export default PictureComponent;

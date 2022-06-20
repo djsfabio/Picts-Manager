@@ -1,9 +1,9 @@
-import { useNavigation } from "@react-navigation/native";
-import { View } from "react-native";
+import { Text, View } from "react-native";
 import BottomBar from "../components/BottomBar";
+import { useNavigation } from "@react-navigation/native";
 import PictureComponent from "../components/PictureComponent";
 
-function Home() {
+function Camera() {
   const navigation = useNavigation();
 
   const actionNavigationHome = () => {
@@ -17,14 +17,8 @@ function Home() {
   const actionNavigationProfile = () => {
     navigation.navigate("Profile");
   };
-
   return (
     <View style={{ width: "100%", height: "100%", backgroundColor: "white" }}>
-      <PictureComponent
-        uriImage={
-          "https://drek4537l1klr.cloudfront.net/dabit/Figures/c04_10.png"
-        }
-      />
       <View
         style={{ flex: 1, justifyContent: "flex-end", alignItems: "center" }}
       >
@@ -37,4 +31,4 @@ function Home() {
     </View>
   );
 }
-export default Home;
+export default Camera;
