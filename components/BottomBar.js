@@ -8,7 +8,7 @@ function BottomBar(props) {
           style={styles.item}
           onPress={props.actionNavigationHome}
         >
-          <Text style={styles.textInButton}>Home</Text>
+          <Text style={styles.textInButton}>🏠</Text>
         </TouchableOpacity>
       </View>
       <View>
@@ -24,7 +24,7 @@ function BottomBar(props) {
           style={styles.item}
           onPress={props.actionNavigationProfile}
         >
-          <Text style={styles.textInButton}>Profile</Text>
+          <Text style={styles.textInButton}>👤</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -36,15 +36,15 @@ const styles = StyleSheet.create({
   container: {
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    flex: 0.28,
+    height: 100,
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 10,
     width: "100%",
     backgroundColor: "grey",
   },
   item: {
+    marginTop: 10,
     flex: 0,
     justifyContent: "center",
     alignItems: "center",
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
   textInButton: {
     fontWeight: "bold",
-    fontSize: 18,
+    fontSize: 30,
     marginTop: 0,
     justifyContent: "center",
     alignItems: "center",
