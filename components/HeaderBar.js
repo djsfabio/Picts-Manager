@@ -1,9 +1,26 @@
+import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
+import CustomButon from "./CustomButon";
 
 function HeaderBar(props) {
+  const navigation = useNavigation();
+
+  const actionNavigationSearch = () => {
+    navigation.navigate("Search");
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.textInButton}>{props.namePage}</Text>
+      <View>
+        <Text style={styles.textInHeader}>{props.namePage}</Text>
+      </View>
+
+      <TouchableOpacity
+        style={styles.buttonItem}
+        onPress={actionNavigationSearch}
+      >
+        <Text style={styles.textInButton}>🔍</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -11,30 +28,36 @@ export default HeaderBar;
 
 const styles = StyleSheet.create({
   container: {
-    height: 80,
+    justifyContent: "center",
+    flex: 0,
+    height: 90,
     alignItems: "center",
     flexDirection: "row",
-    justifyContent: "space-around",
     width: "100%",
     backgroundColor: "grey",
   },
-  item: {
-    marginTop: 10,
+  buttonItem: {
+    top: 45,
+    position: "absolute",
+    width: 50,
+    height: 30,
+    backgroundColor: "white",
+    borderRadius: 30,
+    right: 0,
+    marginRight: 20,
     flex: 0,
     justifyContent: "center",
     alignItems: "center",
-    width: 100,
-    height: 50,
-    backgroundColor: "white",
-    borderRadius: 30,
-    marginBottom: 20,
   },
   textInButton: {
     fontWeight: "bold",
     color: "white",
+    fontSize: 15,
+  },
+  textInHeader: {
+    marginTop: 35,
+    fontWeight: "bold",
+    color: "white",
     fontSize: 20,
-    marginTop: 30,
-    justifyContent: "center",
-    alignItems: "center",
   },
 });

@@ -18,16 +18,12 @@ function Profile() {
     navigation.navigate("Profile");
   };
   return (
-    <View style={{ width: "100%", height: "100%", backgroundColor: "white" }}>
+    <View style={{ width: "100%", height: "100%" }}>
       <HeaderBar namePage={"Profile"} />
       <View
         style={{ flex: 1, justifyContent: "flex-end", alignItems: "center" }}
       >
-        <BottomBar
-          actionNavigationHome={actionNavigationHome}
-          actionNavigationCamera={actionNavigationCamera}
-          actionNavigationProfile={actionNavigationProfile}
-        />
+        <BottomBar />
       </View>
     </View>
   );

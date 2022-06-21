@@ -1,29 +1,34 @@
+import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 
-function BottomBar(props) {
+function BottomBar() {
+  const navigation = useNavigation();
+
+  const actionNavigationHome = () => {
+    navigation.navigate("Home");
+  };
+
+  const actionNavigationCamera = () => {
+    navigation.navigate("Camera");
+  };
+
+  const actionNavigationProfile = () => {
+    navigation.navigate("Profile");
+  };
   return (
     <View style={styles.container}>
       <View>
-        <TouchableOpacity
-          style={styles.item}
-          onPress={props.actionNavigationHome}
-        >
+        <TouchableOpacity style={styles.item} onPress={actionNavigationHome}>
           <Text style={styles.textInButton}>🏠</Text>
         </TouchableOpacity>
       </View>
       <View>
-        <TouchableOpacity
-          style={styles.item}
-          onPress={props.actionNavigationCamera}
-        >
+        <TouchableOpacity style={styles.item} onPress={actionNavigationCamera}>
           <Text style={styles.textInButton}>📸</Text>
         </TouchableOpacity>
       </View>
       <View>
-        <TouchableOpacity
-          style={styles.item}
-          onPress={props.actionNavigationProfile}
-        >
+        <TouchableOpacity style={styles.item} onPress={actionNavigationProfile}>
           <Text style={styles.textInButton}>👤</Text>
         </TouchableOpacity>
       </View>
@@ -42,6 +47,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     width: "100%",
     backgroundColor: "grey",
+    position: "absolute",
+    bottom: 0,
   },
   item: {
     marginTop: 10,
