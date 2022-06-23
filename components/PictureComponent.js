@@ -3,50 +3,60 @@ import { Image, StyleSheet, Text, View } from "react-native";
 function PictureComponent(props) {
   return (
     <View
-      style={[styles.container, props.customMargin, props.customFirstMargin]}
+      style={[
+        styles.container,
+        props.customLastMargin,
+        props.customFirstMargin,
+        styles.shadowProp,
+      ]}
     >
-      <Image
-        style={styles.imageStyle}
-        source={{
-          uri: props.uriImage,
-        }}
-        resizeMode="contain"
-        resizeMethod="resize"
-      />
-      <Text style={styles.text}>Spider-Man into the Spider-Verse</Text>
+      <View style={[styles.text]}>
+        <Text style={styles.text}>{props.userName}</Text>
+        <Text style={styles.text}>{props.location}</Text>
+      </View>
+      <View>
+        <Image
+          style={styles.imageStyle}
+          source={{
+            uri: props.uriImage,
+          }}
+          resizeMode="contain"
+          resizeMethod="resize"
+        />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
-    height: 300,
-    marginBottom: 20,
-    borderRadius: 30,
-    backgroundColor: "#CDCDCD",
+  shadowProp: {
+    shadowColor: "#171717",
+    shadowOffset: { width: -2, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
   },
-  containerLastChild: {
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
-    height: 300,
-    marginBottom: 100,
-    borderRadius: 30,
-    backgroundColor: "#CDCDCD",
+  container: {
+    flex: 1,
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 20,
+    padding: 15,
+    borderRadius: 8,
+    backgroundColor: "rgba(189, 195, 199, 0.95)",
+    justifyContent: "flex-start",
   },
   imageStyle: {
-    flex: 0.8,
-    width: "100%",
-    height: "100%",
+    marginTop: 10,
+    height: 250,
+    width: null,
+    flex: 1,
+  },
+  userInfoText: {
+    flex: 1,
   },
   text: {
     fontWeight: "bold",
     fontSize: 15,
-    justifyContent: "center",
-    alignItems: "center",
   },
 });
 export default PictureComponent;

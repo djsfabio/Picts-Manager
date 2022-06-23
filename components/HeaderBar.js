@@ -29,12 +29,11 @@ export default HeaderBar;
 const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
-    flex: 0,
     height: 90,
     alignItems: "center",
     flexDirection: "row",
     width: "100%",
-    backgroundColor: "grey",
+    backgroundColor: "rgba(108, 122, 137, 0.95)",
   },
   buttonItem: {
     top: 45,

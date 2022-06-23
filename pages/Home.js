@@ -4,27 +4,24 @@ import BottomBar from "../components/BottomBar";
 import HeaderBar from "../components/HeaderBar";
 import PictureComponent from "../components/PictureComponent";
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 function Home() {
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
-
-  // const navigation = useNavigation();
-
-  // const actionNavigationHome = () => {
-  //   navigation.navigate("Home");
-  // };
-
-  // const actionNavigationCamera = () => {
-  //   navigation.navigate("Camera");
-  // };
-
-  // const actionNavigationProfile = () => {
-  //   navigation.navigate("Profile");
-  // };
-
   const DisplayPictures = () => {
     let linksPictures = [
+      "https://images3.alphacoders.com/977/thumbbig-977081.webp",
+      "https://www.tailorbrands.com/wp-content/uploads/2020/06/amazon-logo-a.png",
+      "https://thumbs.dreamstime.com/b/panorama-vertical-de-route-de-campagne-9905521.jpg",
+      "https://images8.alphacoders.com/929/thumbbig-929202.webp",
+      "https://images5.alphacoders.com/980/thumbbig-980843.webp",
+      "https://images4.alphacoders.com/100/thumbbig-1009981.webp",
+      "https://images4.alphacoders.com/960/thumbbig-960281.webp",
+      "https://images5.alphacoders.com/929/thumbbig-929203.webp",
+      "https://images3.alphacoders.com/977/thumbbig-977081.webp",
+      "https://images4.alphacoders.com/960/thumbbig-960281.webp",
+      "https://images5.alphacoders.com/929/thumbbig-929203.webp",
       "https://images3.alphacoders.com/977/thumbbig-977081.webp",
       "https://images8.alphacoders.com/929/thumbbig-929202.webp",
       "https://images5.alphacoders.com/980/thumbbig-980843.webp",
@@ -34,6 +31,40 @@ function Home() {
       "https://images3.alphacoders.com/977/thumbbig-977081.webp",
       "https://images4.alphacoders.com/960/thumbbig-960281.webp",
       "https://images5.alphacoders.com/929/thumbbig-929203.webp",
+      "https://images3.alphacoders.com/977/thumbbig-977081.webp",
+      "https://images8.alphacoders.com/929/thumbbig-929202.webp",
+      "https://images5.alphacoders.com/980/thumbbig-980843.webp",
+      "https://images4.alphacoders.com/100/thumbbig-1009981.webp",
+      "https://images4.alphacoders.com/960/thumbbig-960281.webp",
+      "https://images5.alphacoders.com/929/thumbbig-929203.webp",
+      "https://images3.alphacoders.com/977/thumbbig-977081.webp",
+      "https://images4.alphacoders.com/960/thumbbig-960281.webp",
+      "https://images5.alphacoders.com/929/thumbbig-929203.webp",
+      "https://www.tailorbrands.com/wp-content/uploads/2020/06/amazon-logo-a.png",
+    ];
+
+    let listUser = [
+      "Nathan Dupont",
+      "Fabio De Jesus",
+      "Gérard Verre",
+      "Christophe Morice",
+      "Jean-Jacques Lesg",
+      "Jacques Russel",
+      "Charles Leclerc",
+      "Pierre Gasly",
+      "Kévin Magnussen",
+    ];
+
+    let listLocation = [
+      "Paris",
+      "Colombes",
+      "Courbevoie",
+      "Nanterre",
+      "Kremlin-le-Bicêtre",
+      "Nice",
+      "Marseille",
+      "Rennes",
+      "Nantes",
     ];
 
     // let tabFor = [];
@@ -52,26 +83,37 @@ function Home() {
             customFirstMargin={{ marginTop: 16 }}
             uriImage={item}
             key={key}
+            userName={listUser[getRandomInt(listUser.length - 1)]}
+            location={listLocation[getRandomInt(listLocation.length - 1)]}
           />
         );
       }
       if (linksPictures.length - 1 == key) {
         return (
           <PictureComponent
-            customMargin={{ marginBottom: 110 }}
+            customLastMargin={{ marginBottom: 110 }}
             uriImage={item}
             key={key}
+            userName={listUser[getRandomInt(listUser.length - 1)]}
+            location={listLocation[getRandomInt(listLocation.length - 1)]}
           />
         );
       }
-      return <PictureComponent uriImage={item} key={key} />;
+      return (
+        <PictureComponent
+          uriImage={item}
+          key={key}
+          userName={listUser[getRandomInt(listUser.length - 1)]}
+          location={listLocation[getRandomInt(listLocation.length - 1)]}
+        />
+      );
     });
   };
 
   return (
-    <View style={{ width: "100%", height: "100%" }}>
+    <View style={{ flex: 1 }}>
       <HeaderBar namePage={"Home"} />
-      <ScrollView style={{}}>
+      <ScrollView>
         <DisplayPictures />
       </ScrollView>
       <BottomBar />

@@ -4,19 +4,6 @@ import BottomBar from "../components/BottomBar";
 import HeaderBar from "../components/HeaderBar";
 
 function Profile() {
-  const navigation = useNavigation();
-
-  const actionNavigationHome = () => {
-    navigation.navigate("Home");
-  };
-
-  const actionNavigationCamera = () => {
-    navigation.navigate("Camera");
-  };
-
-  const actionNavigationProfile = () => {
-    navigation.navigate("Profile");
-  };
   return (
     <View style={{ width: "100%", height: "100%" }}>
       <HeaderBar namePage={"Profile"} />

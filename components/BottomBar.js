@@ -46,9 +46,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     width: "100%",
-    backgroundColor: "grey",
     position: "absolute",
     bottom: 0,
+    backgroundColor: "rgba(108, 122, 137, 0.95)",
   },
   item: {
     marginTop: 10,
