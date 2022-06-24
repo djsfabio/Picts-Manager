@@ -1,4 +1,9 @@
 import { Image, StyleSheet, Text, View } from "react-native";
+import { Dimensions } from "react-native";
+
+const win = Dimensions.get("window");
+
+console.log(Image.resolveAssetSource(require("../assets/logo.png")));
 
 function PictureComponent(props) {
   return (
@@ -10,9 +15,21 @@ function PictureComponent(props) {
         styles.shadowProp,
       ]}
     >
-      <View style={[styles.text]}>
-        <Text style={styles.text}>{props.userName}</Text>
-        <Text style={styles.text}>{props.location}</Text>
+      <View style={[styles.profileInformations]}>
+        <View>
+          <Image
+            style={styles.imageProfile}
+            source={{
+              uri: props.uriImageProfile,
+            }}
+            resizeMode="contain"
+            resizeMethod="resize"
+          />
+        </View>
+        <View style={[styles.userInfoText]}>
+          <Text style={styles.textUserName}>{props.userName}</Text>
+          <Text style={styles.textLocation}>{props.location}</Text>
+        </View>
       </View>
       <View>
         <Image
@@ -37,12 +54,10 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    marginLeft: 20,
-    marginRight: 20,
+    marginLeft: 15,
+    marginRight: 15,
     marginBottom: 20,
-    padding: 15,
     borderRadius: 8,
-    backgroundColor: "rgba(189, 195, 199, 0.95)",
     justifyContent: "flex-start",
   },
   imageStyle: {
@@ -51,12 +66,25 @@ const styles = StyleSheet.create({
     width: null,
     flex: 1,
   },
-  userInfoText: {
+  imageProfile: {
+    height: 40,
+    width: 40,
     flex: 1,
+    marginRight: 10,
+    borderRadius: 300,
   },
-  text: {
+  userInfoText: {
+    justifyContent: "center",
+  },
+  textUserName: {
     fontWeight: "bold",
     fontSize: 15,
+  },
+  textLocation: {
+    fontSize: 12,
+  },
+  profileInformations: {
+    flexDirection: "row",
   },
 });
 export default PictureComponent;

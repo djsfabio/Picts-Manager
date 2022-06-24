@@ -55,7 +55,7 @@ function CameraPage() {
           <Text style={styles.textInButton}>Flip Image 🔃</Text>
         </TouchableOpacity> */}
       </View>
-      <BottomBar />
+      <BottomBar butonCamera={{ backgroundColor: "#F8F8F8" }} />
       {/* <Button
         title="Flip Image"
         onPress={() => {

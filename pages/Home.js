@@ -82,6 +82,9 @@ function Home() {
           <PictureComponent
             customFirstMargin={{ marginTop: 16 }}
             uriImage={item}
+            uriImageProfile={
+              "https://www.adobe.com/fr/express/create/media_1bcd514348a568faed99e65f5249895e38b06c947.jpeg?width=400&format=jpeg&optimize=medium"
+            }
             key={key}
             userName={listUser[getRandomInt(listUser.length - 1)]}
             location={listLocation[getRandomInt(listLocation.length - 1)]}
@@ -93,6 +96,9 @@ function Home() {
           <PictureComponent
             customLastMargin={{ marginBottom: 110 }}
             uriImage={item}
+            uriImageProfile={
+              "https://www.adobe.com/fr/express/create/media_1bcd514348a568faed99e65f5249895e38b06c947.jpeg?width=400&format=jpeg&optimize=medium"
+            }
             key={key}
             userName={listUser[getRandomInt(listUser.length - 1)]}
             location={listLocation[getRandomInt(listLocation.length - 1)]}
@@ -103,6 +109,9 @@ function Home() {
         <PictureComponent
           uriImage={item}
           key={key}
+          uriImageProfile={
+            "https://www.adobe.com/fr/express/create/media_1bcd514348a568faed99e65f5249895e38b06c947.jpeg?width=400&format=jpeg&optimize=medium"
+          }
           userName={listUser[getRandomInt(listUser.length - 1)]}
           location={listLocation[getRandomInt(listLocation.length - 1)]}
         />
@@ -113,10 +122,10 @@ function Home() {
   return (
     <View style={{ flex: 1 }}>
       <HeaderBar namePage={"Home"} />
-      <ScrollView>
+      <ScrollView style={{ backgroundColor: "#F8F8F8" }}>
         <DisplayPictures />
       </ScrollView>
-      <BottomBar />
+      <BottomBar butonHome={{ backgroundColor: "#F8F8F8" }} />
     </View>
   );
 }

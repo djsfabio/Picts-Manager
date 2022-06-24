@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 
-function BottomBar() {
+function BottomBar(props) {
   const navigation = useNavigation();
 
   const actionNavigationHome = () => {
@@ -18,17 +18,26 @@ function BottomBar() {
   return (
     <View style={styles.container}>
       <View>
-        <TouchableOpacity style={styles.item} onPress={actionNavigationHome}>
+        <TouchableOpacity
+          style={[styles.item, props.butonHome]}
+          onPress={actionNavigationHome}
+        >
           <Text style={styles.textInButton}>🏠</Text>
         </TouchableOpacity>
       </View>
       <View>
-        <TouchableOpacity style={styles.item} onPress={actionNavigationCamera}>
+        <TouchableOpacity
+          style={[styles.item, props.butonCamera]}
+          onPress={actionNavigationCamera}
+        >
           <Text style={styles.textInButton}>📸</Text>
         </TouchableOpacity>
       </View>
       <View>
-        <TouchableOpacity style={styles.item} onPress={actionNavigationProfile}>
+        <TouchableOpacity
+          style={[styles.item, props.butonProfile]}
+          onPress={actionNavigationProfile}
+        >
           <Text style={styles.textInButton}>👤</Text>
         </TouchableOpacity>
       </View>
@@ -57,7 +66,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 100,
     height: 50,
-    backgroundColor: "white",
+    backgroundColor: "rgba(355, 355, 355, 0.3)",
     borderRadius: 30,
     marginBottom: 20,
   },

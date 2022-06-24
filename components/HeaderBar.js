@@ -9,18 +9,31 @@ function HeaderBar(props) {
     navigation.navigate("Search");
   };
 
+  const DisplaySearchButon = () => {
+    switch (props.namePage) {
+      case "Home":
+        return (
+          <TouchableOpacity
+            style={styles.buttonItem}
+            onPress={actionNavigationSearch}
+          >
+            <Text style={styles.textInButton}>🔍</Text>
+          </TouchableOpacity>
+        );
+        break;
+      default:
+        console.log(`Not on home`);
+        return null;
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View>
         <Text style={styles.textInHeader}>{props.namePage}</Text>
       </View>
 
-      <TouchableOpacity
-        style={styles.buttonItem}
-        onPress={actionNavigationSearch}
-      >
-        <Text style={styles.textInButton}>🔍</Text>
-      </TouchableOpacity>
+      <DisplaySearchButon />
     </View>
   );
 }
