@@ -1,9 +1,4 @@
 import { Image, StyleSheet, Text, View } from "react-native";
-import { Dimensions } from "react-native";
-
-const win = Dimensions.get("window");
-
-console.log(Image.resolveAssetSource(require("../assets/logo.png")));
 
 function PictureComponent(props) {
   return (

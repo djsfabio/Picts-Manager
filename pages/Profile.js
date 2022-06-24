@@ -10,7 +10,7 @@ function Profile() {
       <View
         style={{ flex: 1, justifyContent: "flex-end", alignItems: "center" }}
       >
-        <BottomBar butonProfile={{ backgroundColor: "#F8F8F8" }} />
+        <BottomBar namePage={"Profile"} />
       </View>
     </View>
   );

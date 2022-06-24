@@ -1,17 +1,17 @@
+import { useNavigation } from "@react-navigation/native";
 import { Camera } from "expo-camera";
 import { useEffect, useState } from "react";
-import {
-  Button,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import BottomBar from "../components/BottomBar";
 import HeaderBar from "../components/HeaderBar";
 
 function CameraPage() {
+  const navigation = useNavigation();
+
+  const actionNavigationTest = (imageVar) => {
+    navigation.navigate("Test", { imageVar: imageVar });
+  };
+
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
   const [camera, setCamera] = useState(null);
   const [image, setImage] = useState(null);
@@ -26,7 +26,19 @@ function CameraPage() {
     if (camera) {
       const data = await camera.takePictureAsync(null);
       setImage(data.uri);
+      actionNavigationTest(data.uri);
     }
+  };
+  const returnUri = () => {
+    return data.uri;
+  };
+
+  const turnCamera = async () => {
+    setType(
+      type === Camera.Constants.Type.back
+        ? Camera.Constants.Type.front
+        : Camera.Constants.Type.back
+    );
   };
 
   if (hasCameraPermission === false) {
@@ -34,7 +46,7 @@ function CameraPage() {
   }
   return (
     <View style={{ flex: 1 }}>
-      <HeaderBar namePage={"Camera"} />
+      <HeaderBar namePage={"Camera"} functionReturnCamera={turnCamera} />
       <View style={styles.cameraContainer}>
         <Camera
           ref={(ref) => setCamera(ref)}
@@ -42,32 +54,12 @@ function CameraPage() {
           type={type}
           ratio={"1:1"}
         />
-        {/* <TouchableOpacity
-          style={styles.buttonStyle}
-          onPress={() => {
-            setType(
-              type === Camera.Constants.Type.back
-                ? Camera.Constants.Type.front
-                : Camera.Constants.Type.back
-            );
-          }}
-        >
-          <Text style={styles.textInButton}>Flip Image 🔃</Text>
-        </TouchableOpacity> */}
       </View>
-      <BottomBar butonCamera={{ backgroundColor: "#F8F8F8" }} />
-      {/* <Button
-        title="Flip Image"
-        onPress={() => {
-          setType(
-            type === Camera.Constants.Type.back
-              ? Camera.Constants.Type.front
-              : Camera.Constants.Type.back
-          );
-        }}
-      ></Button>
-      <Button title="Take Picture" onPress={() => takePicture()} />
-      {image && <Image source={{ uri: image }} style={{ flex: 1 }} />} */}
+      <BottomBar
+        namePage={"Camera"}
+        functionTakePicture={takePicture}
+        returnImageUri={returnUri}
+      />
     </View>
   );
 }

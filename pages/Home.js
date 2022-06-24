@@ -125,7 +125,7 @@ function Home() {
       <ScrollView style={{ backgroundColor: "#F8F8F8" }}>
         <DisplayPictures />
       </ScrollView>
-      <BottomBar butonHome={{ backgroundColor: "#F8F8F8" }} />
+      <BottomBar namePage={"Home"} />
     </View>
   );
 }

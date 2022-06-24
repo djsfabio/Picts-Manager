@@ -1,11 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StyleSheet } from "react-native";
 import Camera from "./pages/CameraPage";
 import Home from "./pages/Home";
 import Librairie from "./pages/Librairie";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
+import Test from "./pages/Test";
 
 const Stack = createNativeStackNavigator();
 
@@ -44,6 +44,7 @@ export default function App() {
           name="Camera"
           component={Camera}
         />
+        <Stack.Screen name="Test" component={Test} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,6 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
-import CustomButon from "./CustomButon";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 function HeaderBar(props) {
   const navigation = useNavigation();
@@ -14,15 +13,23 @@ function HeaderBar(props) {
       case "Home":
         return (
           <TouchableOpacity
-            style={styles.buttonItem}
+            style={styles.butonTopRight}
             onPress={actionNavigationSearch}
           >
             <Text style={styles.textInButton}>🔍</Text>
           </TouchableOpacity>
         );
         break;
+      case "Camera":
+        return (
+          <TouchableOpacity
+            onPress={() => props.functionReturnCamera()}
+            style={styles.butonTopRight}
+          >
+            <Text style={styles.textInButton}>🔃</Text>
+          </TouchableOpacity>
+        );
       default:
-        console.log(`Not on home`);
         return null;
     }
   };
@@ -48,19 +55,20 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "rgba(108, 122, 137, 0.95)",
   },
-  buttonItem: {
-    top: 45,
+  butonTopRight: {
+    top: 42,
     position: "absolute",
-    width: 50,
-    height: 30,
+    width: 80,
+    height: 40,
     backgroundColor: "white",
-    borderRadius: 30,
+    borderRadius: 100,
     right: 0,
-    marginRight: 20,
+    marginRight: 15,
     flex: 0,
     justifyContent: "center",
     alignItems: "center",
   },
+
   textInButton: {
     fontWeight: "bold",
     color: "white",
