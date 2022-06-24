@@ -44,15 +44,15 @@ function CameraPage() {
   if (hasCameraPermission === false) {
     return <Text>No access to camera</Text>;
   }
+
   return (
     <View style={{ flex: 1 }}>
       <HeaderBar namePage={"Camera"} functionReturnCamera={turnCamera} />
       <View style={styles.cameraContainer}>
         <Camera
           ref={(ref) => setCamera(ref)}
-          style={styles.fixedRatio}
           type={type}
-          ratio={"1:1"}
+          style={{ height: "100%" }}
         />
       </View>
       <BottomBar
@@ -67,8 +67,7 @@ export default CameraPage;
 
 const styles = StyleSheet.create({
   cameraContainer: {
-    flex: 1,
-    flexDirection: "row",
+    height: "100%",
   },
   fixedRatio: {
     aspectRatio: 1,

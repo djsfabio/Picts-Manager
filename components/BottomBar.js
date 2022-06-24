@@ -101,8 +101,32 @@ function BottomBar(props) {
             </TouchableOpacity>
           </View>
         );
+      case "Test":
+        return (
+          <View style={styles.container}>
+            <TouchableOpacity
+              style={[styles.item]}
+              onPress={actionNavigationHome}
+            >
+              <Text style={styles.textInButton}>🏠</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[styles.item]}
+              onPress={actionNavigationCamera}
+            >
+              <Text style={styles.textInButton}>📸</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[styles.item]}
+              onPress={actionNavigationProfile}
+            >
+              <Text style={styles.textInButton}>👤</Text>
+            </TouchableOpacity>
+          </View>
+        );
       default:
-        console.log(`Not on any page`);
         return null;
     }
   };

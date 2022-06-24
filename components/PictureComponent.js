@@ -1,6 +1,17 @@
+import { useEffect, useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 
 function PictureComponent(props) {
+  const [ratio, setRatio] = useState(1);
+
+  useEffect(() => {
+    if (props.uriImage) {
+      Image.getSize(props.uriImage, (width, height) => {
+        setRatio(width / height);
+      });
+    }
+  }, [props.uriImage]);
+
   return (
     <View
       style={[
@@ -26,14 +37,12 @@ function PictureComponent(props) {
           <Text style={styles.textLocation}>{props.location}</Text>
         </View>
       </View>
-      <View>
+      <View style={{ aspectRatio: ratio, width: 350 }}>
         <Image
           style={styles.imageStyle}
           source={{
             uri: props.uriImage,
           }}
-          resizeMode="contain"
-          resizeMethod="resize"
         />
       </View>
     </View>
@@ -49,16 +58,13 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    marginLeft: 15,
-    marginRight: 15,
+    marginLeft: 20,
+    marginRight: 20,
     marginBottom: 20,
     borderRadius: 8,
-    justifyContent: "flex-start",
   },
   imageStyle: {
     marginTop: 10,
-    height: 250,
-    width: null,
     flex: 1,
   },
   imageProfile: {
@@ -66,7 +72,7 @@ const styles = StyleSheet.create({
     width: 40,
     flex: 1,
     marginRight: 10,
-    borderRadius: 300,
+    borderRadius: 100,
   },
   userInfoText: {
     justifyContent: "center",

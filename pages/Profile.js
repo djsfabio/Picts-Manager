@@ -1,4 +1,3 @@
-import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
 import BottomBar from "../components/BottomBar";
 import HeaderBar from "../components/HeaderBar";
