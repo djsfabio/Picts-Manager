@@ -6,6 +6,7 @@ import Librairie from "./pages/Librairie";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
 import Test from "./pages/Test";
+import Login from "./pages/Login";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,11 +14,12 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="Login"
         screenOptions={{
           headerShown: false,
         }}
       >
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen
           options={{
             animation: "none",
