@@ -5,7 +5,6 @@ import PictureComponent from "../components/PictureComponent";
 
 function Test({ route, navigation }) {
   const { imageVar } = route.params;
-  console.log(route.params);
   return (
     <View style={{ flex: 1 }}>
       <HeaderBar namePage={"Test"} />

@@ -7,6 +7,8 @@ import Profile from "./pages/Profile";
 import Search from "./pages/Search";
 import Test from "./pages/Test";
 import Login from "./pages/Login";
+import SignUp from "./pages/Signup";
+import InitialPage from "./pages/InitialPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,11 +16,13 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="InitialPage"
         screenOptions={{
           headerShown: false,
         }}
       >
+        <Stack.Screen name="InitialPage" component={InitialPage} />
+        <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen
           options={{

@@ -7,17 +7,17 @@ import {
   TextInput,
   TouchableHighlight,
 } from "react-native";
-import BottomBar from "../components/BottomBar";
-import HeaderBar from "../components/HeaderBar";
 
-function Login() {
+function InitialPage() {
   const navigation = useNavigation();
-  const actionNavigationHome = () => {
-    navigation.navigate("Home");
+
+  const actionNavigationLogin = () => {
+    navigation.navigate("Login");
   };
-  const actionNavigationSignUp = () => {
+  const actionNavigationSignup = () => {
     navigation.navigate("SignUp");
   };
+
   return (
     <View
       style={{
@@ -35,47 +35,32 @@ function Login() {
           alignItems: "center",
         }}
       >
-        <Text style={[styles.textTitle, styles.shadowProp]}>Welcome back!</Text>
-        <Text style={styles.textSubTitle}>
-          We're so excited to see you again!
+        <Text style={[styles.textTitle, styles.shadowProp]}>📸</Text>
+        <Text style={styles.textSubTitle}>Picts Manager</Text>
+      </View>
+      <View style={{ alignItems: "center", marginBottom: 10 }}>
+        <Text style={styles.textAccountInformation}>
+          Welcome to Picts Manager
+        </Text>
+        <Text style={{ fontStyle: "italic" }}>
+          Join us to share with other users your best pictures.
         </Text>
       </View>
       <View>
-        <Text style={styles.textAccountInformation}>ACCOUNT INFORMATION</Text>
-        <TextInput
-          placeholder="E-mail or username"
-          autoCapitalize="none"
-          autoCorrect={false}
-          style={styles.input}
-        />
-        <TextInput
-          placeholder="Password"
-          autoCapitalize="none"
-          autoCorrect={false}
-          secureTextEntry={true}
-          style={styles.input}
-        />
-      </View>
-      <View>
-        <TouchableHighlight
-          activeOpacity={1}
-          underlayColor="white"
-          style={[styles.item, styles.shadowProp]}
-          onPress={actionNavigationHome}
-        >
-          <Text>Login</Text>
-        </TouchableHighlight>
         <TouchableOpacity
-          style={styles.signUpButon}
-          onPress={actionNavigationSignUp}
+          onPress={actionNavigationSignup}
+          style={[styles.item, styles.shadowProp, { backgroundColor: "white" }]}
         >
-          <Text>Sign up</Text>
+          <Text>Register</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={actionNavigationLogin} style={[styles.item]}>
+          <Text>Login</Text>
         </TouchableOpacity>
       </View>
     </View>
   );
 }
-export default Login;
+export default InitialPage;
 
 const styles = StyleSheet.create({
   signUpButon: {

@@ -112,7 +112,7 @@ function BottomBar(props) {
             </TouchableOpacity>
 
             <TouchableOpacity
-              style={[styles.item]}
+              style={[styles.item, styles.actualPage]}
               onPress={actionNavigationCamera}
             >
               <Text style={styles.textInButton}>📸</Text>
