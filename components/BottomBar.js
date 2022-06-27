@@ -101,7 +101,7 @@ function BottomBar(props) {
             </TouchableOpacity>
           </View>
         );
-      case "Test":
+      case "PictureTakenPage":
         return (
           <View style={styles.container}>
             <TouchableOpacity

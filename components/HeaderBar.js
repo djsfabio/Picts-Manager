@@ -4,11 +4,28 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 function HeaderBar(props) {
   const navigation = useNavigation();
 
+  const saveInformations = () => {
+    console.log("Save informations");
+  };
+
+  const actionNavigationProfile = () => {
+    navigation.navigate("Profile");
+  };
+
+  const updateDataProfile = () => {
+    saveInformations();
+    actionNavigationProfile();
+  };
+
   const actionNavigationSearch = () => {
     navigation.navigate("Search");
   };
 
-  const DisplaySearchButon = () => {
+  const actionNavigationUpdateProfile = () => {
+    navigation.navigate("UpdateProfile");
+  };
+
+  const DisplaySpecialLayout = () => {
     switch (props.namePage) {
       case "Home":
         return (
@@ -29,6 +46,25 @@ function HeaderBar(props) {
             <Text style={styles.textInButton}>🔃</Text>
           </TouchableOpacity>
         );
+      case "Profile":
+        return (
+          <TouchableOpacity
+            onPress={actionNavigationUpdateProfile}
+            style={styles.butonTopRight}
+          >
+            <Text style={styles.textInButton}>🛠</Text>
+          </TouchableOpacity>
+        );
+      case "Update Profile":
+        return (
+          <TouchableOpacity
+            onPress={updateDataProfile}
+            style={styles.butonTopRight}
+          >
+            <Text style={styles.textInButton}>💾</Text>
+          </TouchableOpacity>
+        );
+
       default:
         return null;
     }
@@ -40,7 +76,7 @@ function HeaderBar(props) {
         <Text style={styles.textInHeader}>{props.namePage}</Text>
       </View>
 
-      <DisplaySearchButon />
+      <DisplaySpecialLayout />
     </View>
   );
 }

@@ -5,10 +5,11 @@ import Home from "./pages/Home";
 import Librairie from "./pages/Librairie";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
-import Test from "./pages/Test";
+import PictureTakenPage from "./pages/PictureTakenPage";
 import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
 import InitialPage from "./pages/InitialPage";
+import UpdateProfile from "./pages/UpdateProfile";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,14 @@ export default function App() {
           name="Home"
           component={Home}
         />
+        <Stack.Screen
+          options={{
+            animation: "none",
+            gestureEnabled: false,
+          }}
+          name="UpdateProfile"
+          component={UpdateProfile}
+        />
         <Stack.Screen name="Librairie" component={Librairie} />
         <Stack.Screen name="Search" component={Search} />
         <Stack.Screen
@@ -50,7 +59,7 @@ export default function App() {
           name="Camera"
           component={Camera}
         />
-        <Stack.Screen name="Test" component={Test} />
+        <Stack.Screen name="PictureTakenPage" component={PictureTakenPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

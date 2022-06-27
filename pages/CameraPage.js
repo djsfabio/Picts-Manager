@@ -9,8 +9,8 @@ import HeaderBar from "../components/HeaderBar";
 function CameraPage() {
   const navigation = useNavigation();
 
-  const actionNavigationTest = (imageVar) => {
-    navigation.navigate("Test", { imageVar: imageVar });
+  const actionNavigationPictureTakenPage = (imageVar) => {
+    navigation.navigate("PictureTakenPage", { imageVar: imageVar });
   };
 
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
@@ -27,7 +27,7 @@ function CameraPage() {
     if (camera) {
       const data = await camera.takePictureAsync();
       setImage(data.uri);
-      actionNavigationTest(data.uri);
+      actionNavigationPictureTakenPage(data.uri);
     }
   };
   const returnUri = () => {
