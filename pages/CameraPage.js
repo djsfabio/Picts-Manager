@@ -1,4 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
+import * as React from "react";
 import { Camera } from "expo-camera";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
@@ -24,7 +25,7 @@ function CameraPage() {
   }, []);
   const takePicture = async () => {
     if (camera) {
-      const data = await camera.takePictureAsync(null);
+      const data = await camera.takePictureAsync();
       setImage(data.uri);
       actionNavigationTest(data.uri);
     }
@@ -50,9 +51,14 @@ function CameraPage() {
       <HeaderBar namePage={"Camera"} functionReturnCamera={turnCamera} />
       <View style={styles.cameraContainer}>
         <Camera
+          flashMode={"auto"}
           ref={(ref) => setCamera(ref)}
           type={type}
-          style={{ height: "100%" }}
+          style={{
+            alignSelf: "center",
+            height: 760,
+            width: 570,
+          }}
         />
       </View>
       <BottomBar
@@ -68,6 +74,7 @@ export default CameraPage;
 const styles = StyleSheet.create({
   cameraContainer: {
     height: "100%",
+    backgroundColor: "black",
   },
   fixedRatio: {
     aspectRatio: 1,

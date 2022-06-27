@@ -51,7 +51,7 @@ function BottomBar(props) {
         );
       case "Camera":
         return (
-          <View style={styles.container}>
+          <View style={styles.containerCamera}>
             <TouchableOpacity
               style={[styles.item]}
               onPress={actionNavigationHome}
@@ -147,6 +147,18 @@ const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: "rgba(108, 122, 137, 0.95)",
   },
+  containerCamera: {
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    height: 100,
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    width: "100%",
+    position: "absolute",
+    bottom: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.3)",
+  },
   actualPage: {
     backgroundColor: "#F8F8F8",
   },
@@ -196,11 +208,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   textInButonCamera: {
-    fontWeight: "bold",
     fontSize: 50,
-    marginTop: 0,
-    justifyContent: "center",
-    alignItems: "center",
   },
   textInButton: {
     fontWeight: "bold",
