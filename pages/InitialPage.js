@@ -24,14 +24,15 @@ function InitialPage() {
         width: "100%",
         height: "100%",
         alignItems: "center",
-        backgroundColor: "darkgrey",
+        backgroundColor: "rgba(108, 122, 137, 0.95)",
       }}
     >
       <View
         style={{
-          marginTop: 120,
+          marginTop: 100,
+          marginBottom: 80,
           width: 300,
-          height: 150,
+          height: 200,
           alignItems: "center",
         }}
       >
@@ -73,11 +74,13 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
   },
   textTitle: {
-    fontSize: 35,
+    fontSize: 150,
     fontWeight: "bold",
     marginBottom: 5,
   },
-  textSubTitle: {},
+  textSubTitle: {
+    fontSize: 40,
+  },
   input: {
     borderWidth: 1,
     borderColor: "rgba(255,255,255, 0.3)",

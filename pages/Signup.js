@@ -21,7 +21,7 @@ function Signup() {
         width: "100%",
         height: "100%",
         alignItems: "center",
-        backgroundColor: "darkgrey",
+        backgroundColor: "rgba(108, 122, 137, 0.95)",
       }}
     >
       <View
@@ -69,7 +69,9 @@ function Signup() {
           style={styles.signUpButon}
           onPress={actionNavigationLogin}
         >
-          <Text>Go to login</Text>
+          <Text style={{ color: "white", fontWeight: "bold" }}>
+            Go to login page
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
