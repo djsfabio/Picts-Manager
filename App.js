@@ -59,7 +59,14 @@ export default function App() {
           name="Camera"
           component={Camera}
         />
-        <Stack.Screen name="PictureTakenPage" component={PictureTakenPage} />
+        <Stack.Screen
+          options={{
+            animation: "none",
+            gestureEnabled: false,
+          }}
+          name="PictureTakenPage"
+          component={PictureTakenPage}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,10 +1,54 @@
-import { ScrollView, View, TouchableOpacity, Text } from "react-native";
+import { ScrollView, View, TouchableOpacity, Text, Alert } from "react-native";
+import { useEffect, useRef, useState } from "react";
+import { shareAsync } from "expo-sharing";
 import BottomBar from "../components/BottomBar";
 import HeaderBar from "../components/HeaderBar";
 import PictureComponent from "../components/PictureComponent";
+import * as MediaLibrary from "expo-media-library";
 
 function PictureTakenPage({ route, navigation }) {
+  //Permission et fonction permettant la sauvegarde de la photo dans sa qualité originelle avant compression
+  const [hasMediaLibraryPermission, setHasMediaLibraryPermission] = useState();
+
+  useEffect(() => {
+    (async () => {
+      const mediaLibraryPermission =
+        await MediaLibrary.requestPermissionsAsync();
+      setHasMediaLibraryPermission(mediaLibraryPermission.status === "granted");
+    })();
+  }, []);
+
+  let savePhoto = () => {
+    MediaLibrary.saveToLibraryAsync(imageVar);
+  };
+
+  //Fonction permettant de partager la photo
+  let sharePic = () => {
+    shareAsync(imageVar);
+  };
+  //Fonction permettant d'afficher une alerte et de sauvegarder en local la photo
+  const createTwoButtonAlert = () =>
+    Alert.alert(
+      "Picture saved",
+      "Your photo is now available in your camera roll in the best quality.",
+      [
+        {
+          text: "Share",
+          onPress: () => sharePic(),
+          style: "cancel",
+        },
+        { text: "Continue", onPress: () => console.log("Continue Pressed") },
+      ]
+    );
+
+  const saveImageAndAlert = () => {
+    savePhoto();
+    createTwoButtonAlert();
+  };
+
+  //Récupération de l'URI de l'image prise dans la page Camera grâce à react navigation
   const { imageVar } = route.params;
+
   return (
     <View style={{ flex: 1 }}>
       <HeaderBar namePage={"Your Picture !"} />
@@ -28,7 +72,7 @@ function PictureTakenPage({ route, navigation }) {
           borderRadius: 30,
           marginBottom: 150,
         }}
-        onPress={() => console.log("Saved")}
+        onPress={saveImageAndAlert}
       >
         <Text
           style={{

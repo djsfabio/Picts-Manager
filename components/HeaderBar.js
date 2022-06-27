@@ -12,6 +12,10 @@ function HeaderBar(props) {
     navigation.navigate("Profile");
   };
 
+  const actionNavigationHome = () => {
+    navigation.navigate("Home");
+  };
+
   const updateDataProfile = () => {
     saveInformations();
     actionNavigationProfile();
@@ -62,6 +66,15 @@ function HeaderBar(props) {
             style={styles.butonTopRight}
           >
             <Text style={styles.textInButton}>💾</Text>
+          </TouchableOpacity>
+        );
+      case "Your Picture !":
+        return (
+          <TouchableOpacity
+            onPress={actionNavigationHome}
+            style={styles.butonTopRight}
+          >
+            <Text style={styles.textInButton}>📤</Text>
           </TouchableOpacity>
         );
 
