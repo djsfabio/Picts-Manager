@@ -1,11 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
 import {
-  View,
-  Text,
   StyleSheet,
-  TouchableOpacity,
+  Text,
   TextInput,
   TouchableHighlight,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 function Signup() {

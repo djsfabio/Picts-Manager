@@ -1,12 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  TextInput,
-  TouchableHighlight,
-} from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 function InitialPage() {
   const navigation = useNavigation();

@@ -1,14 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import {
-  View,
-  Text,
   StyleSheet,
-  TouchableOpacity,
+  Text,
   TextInput,
   TouchableHighlight,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import BottomBar from "../components/BottomBar";
-import HeaderBar from "../components/HeaderBar";
 
 function Login() {
   const navigation = useNavigation();
