@@ -1,14 +1,13 @@
-import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 import {
-  ScrollView,
-  TextInput,
-  Text,
-  View,
   Image,
+  ScrollView,
   StyleSheet,
+  Text,
+  TextInput,
   TouchableOpacity,
-  TouchableHighlight,
+  View,
 } from "react-native";
 import BottomBar from "../components/BottomBar";
 import HeaderBar from "../components/HeaderBar";
@@ -129,53 +128,11 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: 50,
   },
-  textInActionButton: {
-    color: "white",
-    fontSize: 15,
-    alignSelf: "center",
-  },
-  actionButton: {
-    backgroundColor: "rgba(108, 122, 137, 0.95)",
-    borderRadius: 20,
-    padding: 10,
-    width: 80,
-    justifyContent: "center",
-  },
   shadowProp: {
     shadowColor: "#171717",
     shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 5,
-  },
-  container: {
-    flex: 1,
-    marginLeft: 20,
-    marginRight: 20,
-    marginBottom: 20,
-    borderRadius: 8,
-  },
-  imageStyle: {
-    marginTop: 10,
-    flex: 1,
-  },
-  textInput: {
-    fontSize: 12,
-  },
-  userInfoText: {
-    justifyContent: "center",
-    marginLeft: 10,
-  },
-  textUserName: {
-    fontWeight: "bold",
-    fontSize: 20,
-  },
-  textLocation: {
-    marginTop: 5,
-    fontSize: 15,
-  },
-  textAccountInformation: {
-    fontSize: 13,
-    fontWeight: "bold",
   },
   input: {
     borderWidth: 1,
@@ -188,10 +145,5 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 3,
     fontSize: 13,
-  },
-  profileInformations: {
-    flexDirection: "row",
-    paddingTop: 20,
-    paddingLeft: 20,
   },
 });

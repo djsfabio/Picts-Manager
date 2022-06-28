@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 function BottomBar(props) {
+  //Différentes fonctions nécessaires à la navigation pour la bottom bar
   const navigation = useNavigation();
 
   const actionNavigationHome = () => {
@@ -16,12 +17,7 @@ function BottomBar(props) {
     navigation.navigate("Profile");
   };
 
-  const actionNavigationTest = (imageVar) => {
-    navigation.navigate("Test", { imageVar: imageVar });
-  };
-
-  var uriImage;
-
+  //Fonction permettant de comprendre sur quelle page nous sommes et afficher une bottom bar en fonction
   const ActualButonNavigation = () => {
     switch (props.namePage) {
       case "Home":
@@ -127,7 +123,30 @@ function BottomBar(props) {
           </View>
         );
       default:
-        return null;
+        return (
+          <View style={styles.container}>
+            <TouchableOpacity
+              style={[styles.item]}
+              onPress={actionNavigationHome}
+            >
+              <Text style={styles.textInButton}>🏠</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[styles.item]}
+              onPress={actionNavigationCamera}
+            >
+              <Text style={styles.textInButton}>📸</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[styles.item]}
+              onPress={actionNavigationProfile}
+            >
+              <Text style={styles.textInButton}>👤</Text>
+            </TouchableOpacity>
+          </View>
+        );
     }
   };
   return <ActualButonNavigation />;
@@ -161,24 +180,6 @@ const styles = StyleSheet.create({
   },
   actualPage: {
     backgroundColor: "#F8F8F8",
-  },
-  imageProfile: {
-    height: 40,
-    width: 40,
-    flex: 1,
-    marginRight: 10,
-    borderRadius: 300,
-  },
-  currentButton: {
-    marginTop: 10,
-    flex: 0,
-    justifyContent: "center",
-    alignItems: "center",
-    width: 150,
-    height: 50,
-    backgroundColor: "rgba(355, 355, 355, 0.3)",
-    borderRadius: 30,
-    marginBottom: 20,
   },
   cameraButonSpecial: {
     shadowColor: "#171717",

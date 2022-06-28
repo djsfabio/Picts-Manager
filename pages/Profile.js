@@ -1,18 +1,18 @@
 import { useNavigation } from "@react-navigation/native";
 import {
-  Text,
-  View,
   Image,
-  StyleSheet,
-  TouchableOpacity,
-  TouchableHighlight,
   ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import Album from "../components/Album";
 import BottomBar from "../components/BottomBar";
 import HeaderBar from "../components/HeaderBar";
 
 function Profile() {
+  //Fonctions de navigations
   const navigation = useNavigation();
 
   const actionNavigationUpdateProfile = () => {
@@ -22,6 +22,7 @@ function Profile() {
   const actionNavigationCamera = () => {
     navigation.navigate("Camera");
   };
+
   //Déclaration des données de l'utilisateur à init ensuite avec la BDD
   const testUserName = "Test User Name";
   const testUserLocation = "Test User Location";
@@ -118,17 +119,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 5,
-  },
-  container: {
-    flex: 1,
-    marginLeft: 20,
-    marginRight: 20,
-    marginBottom: 20,
-    borderRadius: 8,
-  },
-  imageStyle: {
-    marginTop: 10,
-    flex: 1,
   },
   imageProfile: {
     height: 60,
