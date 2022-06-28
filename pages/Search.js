@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, TextInput, View } from "react-native";
+import { ScrollView, StyleSheet, TextInput, View, Text } from "react-native";
 import Album from "../components/Album";
 import BottomBar from "../components/BottomBar";
 import HeaderBar from "../components/HeaderBar";
@@ -27,6 +27,17 @@ function Search() {
             flexGrow: 1,
           }}
         >
+          <Text
+            style={{
+              fontSize: 12,
+              paddingLeft: 15,
+              paddingRight: 15,
+              paddingTop: 5,
+              paddingBottom: 5,
+            }}
+          >
+            Search Result :
+          </Text>
           <ScrollView
             contentContainerStyle={{
               paddingBottom: 260,
