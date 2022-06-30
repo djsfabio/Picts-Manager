@@ -15,13 +15,13 @@ import HeaderBar from "../components/HeaderBar";
 function UpdateProfile() {
   const navigation = useNavigation();
 
-  const [text, setText] = useState("✅");
+  const [text, setText] = useState("🔓");
 
   const changePrivacy = () => {
-    if (text == "✅") {
-      setText("❌");
+    if (text == "🔓") {
+      setText("🔒");
     } else {
-      setText("✅");
+      setText("🔓");
     }
   };
 
@@ -109,7 +109,7 @@ function UpdateProfile() {
               ]}
               onPress={changePrivacy}
             >
-              <Text style={{ alignSelf: "center", fontSize: 20 }}>{text}</Text>
+              <Text style={{ alignSelf: "center", fontSize: 30 }}>{text}</Text>
             </TouchableOpacity>
           </View>
         </View>

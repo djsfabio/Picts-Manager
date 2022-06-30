@@ -27,17 +27,6 @@ function Search() {
             flexGrow: 1,
           }}
         >
-          <Text
-            style={{
-              fontSize: 12,
-              paddingLeft: 15,
-              paddingRight: 15,
-              paddingTop: 5,
-              paddingBottom: 5,
-            }}
-          >
-            Search Result :
-          </Text>
           <ScrollView
             contentContainerStyle={{
               paddingBottom: 260,
