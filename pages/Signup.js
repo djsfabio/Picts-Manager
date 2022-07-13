@@ -1,5 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 import {
+  Alert,
   StyleSheet,
   Text,
   TextInput,
@@ -7,12 +9,52 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import urlBack from "../Variables";
 
 function Signup() {
   const navigation = useNavigation();
 
   const actionNavigationLogin = () => {
     navigation.navigate("Login");
+  };
+
+  const incorrectionInputs = () =>
+    Alert.alert(
+      "Register error",
+      "Sorry, your inputs are incorrect. Please try again.",
+      [{ text: "Continue" }]
+    );
+
+  const [textUsername, setTextUsername] = useState("");
+  const [textPassword, setTextPassword] = useState("");
+  const [textEmail, setTextEmail] = useState("");
+
+  const createUserInDB = async () => {
+    const result = await fetch(urlBack + "users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username: textUsername,
+        email: textEmail,
+        password: textPassword,
+        privacy: "false",
+        profilePicture: "",
+      }),
+    });
+
+    const resultAlbum = await fetch(urlBack + "album/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: 10000000,
+        users: {
+          username: textUsername,
+        },
+        name: "default",
+        visibility: "false",
+      }),
+    });
+    actionNavigationLogin();
   };
 
   return (
@@ -38,18 +80,21 @@ function Signup() {
       <View>
         <Text style={styles.textAccountInformation}>ACCOUNT INFORMATION</Text>
         <TextInput
+          onChangeText={(newText) => setTextUsername(newText)}
           placeholder="Username"
           autoCapitalize="none"
           autoCorrect={false}
           style={styles.input}
         />
         <TextInput
+          onChangeText={(newText) => setTextEmail(newText)}
           placeholder="Email"
           autoCapitalize="none"
           autoCorrect={false}
           style={styles.input}
         />
         <TextInput
+          onChangeText={(newText) => setTextPassword(newText)}
           placeholder="Password"
           secureTextEntry={true}
           autoCapitalize="none"
@@ -59,6 +104,9 @@ function Signup() {
       </View>
       <View>
         <TouchableHighlight
+          onPress={() => {
+            createUserInDB();
+          }}
           activeOpacity={1}
           underlayColor="white"
           style={[styles.item, styles.shadowProp]}

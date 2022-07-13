@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
 import InitialPage from "./pages/InitialPage";
 import UpdateProfile from "./pages/UpdateProfile";
+import CreateAlbum from "./pages/CreateAlbum";
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +34,7 @@ export default function App() {
           name="Home"
           component={Home}
         />
+        <Stack.Screen name="CreateAlbum" component={CreateAlbum} />
         <Stack.Screen
           options={{
             animation: "none",

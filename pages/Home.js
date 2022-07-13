@@ -52,20 +52,11 @@ function Home() {
       "Nantes",
     ];
 
-    // let tabFor = [];
-
-    // for (let pas = 0; pas < 150; pas++) {
-    //   tabFor.push(
-    //     <PictureComponent uriImage={linksPictures[getRandomInt(8)]} />
-    //   );
-    // }
-    // return tabFor;
-
     return linksPictures.map((item, key) => {
       if (key == 0) {
         return (
           <PictureComponent
-            customFirstMargin={{ marginTop: 16 }}
+            customFirstMargin={{ marginTop: 0 }}
             uriImage={item}
             uriImageProfile={
               "https://www.adobe.com/fr/express/create/media_1bcd514348a568faed99e65f5249895e38b06c947.jpeg?width=400&format=jpeg&optimize=medium"
@@ -109,9 +100,10 @@ function Home() {
       <HeaderBar namePage={"Home"} />
       <ScrollView
         style={{
-          backgroundColor: "#F8F8F8",
+          backgroundColor: "black",
         }}
         contentContainerStyle={{ flexGrow: 1, justifyContent: "center" }}
+        showsVerticalScrollIndicator={false}
       >
         <View style={styles.scrollViewContainer}>
           <DisplayPictures />

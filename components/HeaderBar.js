@@ -4,10 +4,6 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 function HeaderBar(props) {
   const navigation = useNavigation();
 
-  const saveInformations = () => {
-    console.log("Save informations");
-  };
-
   const actionNavigationProfile = () => {
     navigation.navigate("Profile");
   };
@@ -17,7 +13,6 @@ function HeaderBar(props) {
   };
 
   const updateDataProfile = () => {
-    saveInformations();
     actionNavigationProfile();
   };
 
@@ -62,7 +57,10 @@ function HeaderBar(props) {
       case "Update Profile":
         return (
           <TouchableOpacity
-            onPress={updateDataProfile}
+            onPress={() => {
+              props.functionSave();
+              updateDataProfile();
+            }}
             style={styles.butonTopRight}
           >
             <Text style={styles.textInButton}>💾</Text>
@@ -71,13 +69,26 @@ function HeaderBar(props) {
       case "Your Picture !":
         return (
           <TouchableOpacity
-            onPress={actionNavigationHome}
+            onPress={async () => {
+              await props.functionSaveAndAlter();
+              // actionNavigationHome();
+            }}
             style={styles.butonTopRight}
           >
             <Text style={styles.textInButton}>📤</Text>
           </TouchableOpacity>
         );
-
+      case "Create Album":
+        return (
+          <TouchableOpacity
+            onPress={() => {
+              actionNavigationProfile();
+            }}
+            style={styles.butonTopRight}
+          >
+            <Text style={styles.textInButton}>💾</Text>
+          </TouchableOpacity>
+        );
       default:
         return null;
     }
@@ -97,6 +108,7 @@ export default HeaderBar;
 
 const styles = StyleSheet.create({
   container: {
+    zIndex: 1,
     justifyContent: "center",
     height: 90,
     alignItems: "center",

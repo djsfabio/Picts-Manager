@@ -16,6 +16,7 @@ function CameraPage() {
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
   const [camera, setCamera] = useState(null);
   const [image, setImage] = useState(null);
+  const [imgData, setImgData] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
   useEffect(() => {
     (async () => {
@@ -25,9 +26,11 @@ function CameraPage() {
   }, []);
   const takePicture = async () => {
     if (camera) {
-      const data = await camera.takePictureAsync();
+      const data = await camera.takePictureAsync({});
       setImage(data.uri);
-      actionNavigationPictureTakenPage(data.uri);
+      setImgData(data);
+      // Set all the data image
+      actionNavigationPictureTakenPage(data);
     }
   };
   const returnUri = () => {
@@ -61,11 +64,7 @@ function CameraPage() {
           }}
         />
       </View>
-      <BottomBar
-        namePage={"Camera"}
-        functionTakePicture={takePicture}
-        returnImageUri={returnUri}
-      />
+      <BottomBar namePage={"Camera"} functionTakePicture={takePicture} />
     </View>
   );
 }

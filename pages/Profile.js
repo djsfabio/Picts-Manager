@@ -10,6 +10,7 @@ import {
 import Album from "../components/Album";
 import BottomBar from "../components/BottomBar";
 import HeaderBar from "../components/HeaderBar";
+import { usernameGlobal } from "../Variables";
 
 function Profile() {
   //Fonctions de navigations
@@ -19,12 +20,18 @@ function Profile() {
     navigation.navigate("UpdateProfile");
   };
 
+  const actionNavigationCreateAlbum = () => {
+    navigation.navigate("CreateAlbum");
+  };
+
   const actionNavigationCamera = () => {
     navigation.navigate("Camera");
   };
 
   //Déclaration des données de l'utilisateur à init ensuite avec la BDD
-  const testUserName = "Test User Name";
+  const testUserName = usernameGlobal
+    .trim()
+    .replace(/^\w/, (c) => c.toUpperCase());
   const testUserLocation = "Test User Location";
   const userProfilePicture =
     "https://www.adobe.com/fr/express/create/media_1bcd514348a568faed99e65f5249895e38b06c947.jpeg?width=400&format=jpeg&optimize=medium";
@@ -35,9 +42,12 @@ function Profile() {
       <View style={{ flex: 1 }}>
         <View style={[styles.profileInformations]}>
           <View>
-            <TouchableOpacity onPress={actionNavigationUpdateProfile}>
+            <TouchableOpacity
+              style={[styles.shadowProp]}
+              onPress={actionNavigationUpdateProfile}
+            >
               <Image
-                style={styles.imageProfile}
+                style={[styles.imageProfile]}
                 source={{
                   uri: userProfilePicture,
                 }}
@@ -48,7 +58,6 @@ function Profile() {
           </View>
           <View style={[styles.userInfoText]}>
             <Text style={styles.textUserName}>{testUserName}</Text>
-            <Text style={styles.textLocation}>{testUserLocation}</Text>
           </View>
         </View>
         <View
@@ -58,7 +67,10 @@ function Profile() {
             padding: 20,
           }}
         >
-          <TouchableOpacity style={[styles.actionButton, styles.shadowProp]}>
+          <TouchableOpacity
+            onPress={actionNavigationCreateAlbum}
+            style={[styles.actionButton, styles.shadowProp]}
+          >
             <Text style={styles.textInActionButton}>Albums</Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -78,6 +90,7 @@ function Profile() {
               paddingBottom: 260,
               alignItems: "center",
             }}
+            showsVerticalScrollIndicator={false}
           >
             <Album />
             <Album />
@@ -124,8 +137,6 @@ const styles = StyleSheet.create({
     height: 60,
     width: 60,
     borderRadius: 100,
-    borderWidth: 2,
-    borderColor: "rgba(108, 122, 137, 0.95)",
   },
   userInfoText: {
     justifyContent: "center",

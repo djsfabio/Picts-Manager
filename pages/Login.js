@@ -1,5 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
+import { useRef, useState } from "react";
 import {
+  Alert,
   StyleSheet,
   Text,
   TextInput,
@@ -7,8 +9,49 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import urlBack, {
+  albumsUserGlobal,
+  eraseAlbumsUser,
+  eraseMailUser,
+  erasePasswordUser,
+  erasePrivacyUser,
+  eraseUsername,
+  usernameGlobal,
+} from "../Variables";
 
 function Login() {
+  const ref_input2 = useRef();
+
+  const incorrectionInputs = () =>
+    Alert.alert(
+      "Login error",
+      "Sorry, your username or password is incorrect. Please try again.",
+      [{ text: "Continue" }]
+    );
+
+  const [textUsername, setTextUsername] = useState("");
+  const [textPassword, setTextPassword] = useState("");
+
+  const getUserInfo = async (user) => {
+    try {
+      const result = await fetch(urlBack + "users/" + user);
+      const stockResult = await result.json();
+      if (stockResult.password == textPassword) {
+        actionNavigationHome();
+        eraseUsername(user);
+        erasePrivacyUser(stockResult.privacy);
+        eraseMailUser(stockResult.email);
+        erasePasswordUser(stockResult.password);
+        eraseAlbumsUser(stockResult.albums);
+      } else {
+        incorrectionInputs();
+      }
+    } catch (error) {
+      console.log(error);
+      incorrectionInputs();
+    }
+  };
+
   const navigation = useNavigation();
   const actionNavigationHome = () => {
     navigation.navigate("Home");
@@ -41,17 +84,24 @@ function Login() {
       <View>
         <Text style={styles.textAccountInformation}>ACCOUNT INFORMATION</Text>
         <TextInput
-          placeholder="E-mail or username"
+          onSubmitEditing={() => ref_input2.current.focus()}
+          returnKeyType={"next"}
+          placeholder="Username"
+          autoFocus={true}
+          onChangeText={(newText) => setTextUsername(newText)}
           autoCapitalize="none"
           autoCorrect={false}
           style={styles.input}
         />
         <TextInput
+          clearButtonMode="always"
           placeholder="Password"
+          onChangeText={(newText) => setTextPassword(newText)}
           autoCapitalize="none"
           autoCorrect={false}
           secureTextEntry={true}
           style={styles.input}
+          ref={ref_input2}
         />
       </View>
       <View>
@@ -59,7 +109,7 @@ function Login() {
           activeOpacity={1}
           underlayColor="white"
           style={[styles.item, styles.shadowProp]}
-          onPress={actionNavigationHome}
+          onPress={() => getUserInfo(textUsername)}
         >
           <Text>Login</Text>
         </TouchableHighlight>

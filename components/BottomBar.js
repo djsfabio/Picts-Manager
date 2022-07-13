@@ -155,21 +155,21 @@ export default BottomBar;
 
 const styles = StyleSheet.create({
   container: {
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    height: 100,
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    height: 90,
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-around",
     width: "100%",
     position: "absolute",
     bottom: 0,
-    backgroundColor: "rgba(108, 122, 137, 0.95)",
+    backgroundColor: "rgba(108, 122, 137, 0.80)",
   },
   containerCamera: {
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    height: 100,
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    height: 90,
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-around",
