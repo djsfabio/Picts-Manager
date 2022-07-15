@@ -5,6 +5,32 @@
 Le but de ce projet était de conceptualiser un rapide réseau social qui avait pour fonctionnalité clef la compression d'image du côté Front avant d'être envoyé sur le Back.
 Ce projet résulte de mes premiers pas en JS et plus particulièrement en React Native couplé à Expo.
 
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/djsfabio/Picts-Manager
+```
+
+Go to the project directory
+
+```bash
+  cd Picts-Manager
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+
 ## Application Mobile
 
 Application mobile développée en React Native et testée pour le moment directement grâce à Expo.
