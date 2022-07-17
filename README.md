@@ -49,6 +49,14 @@ Partie Back-End non fournie dans ce repo car non développée par moi-même.
 - Enregistrement en local de la photo origale (pré-compression) et de la photo post-compression
 - (Non intégrée) Possibilité de créer et compléter des albums avec les photos prises par l'utilisateur
 
+## Concept of the app
+
+![Logo](./Ressources/figma.png)
+
+## Database schema
+
+![Logo](./Ressources/database.png)
+
 ## Screenshots of the app
 
 ![Logo](./Ressources/App.png)
